@@ -1,0 +1,11 @@
+{
+  "upload_type": "software",
+  "title": "Membrane Committee",
+  "description": "Synthetic toy simulation (classical software, not physical holography hardware): a heterogeneous committee of holographic membranes at different coarse-graining resolutions voting on noisy probes. Negative result: majority, confidence-weighted and reliability-weighted voting do not beat the best single member at low-to-moderate noise and only marginally exceed it near chance, while the oracle gap shows the ensemble holds unused information.",
+  "creators": [{"name": "Brisson, Jean-François", "orcid": "0009-0000-9778-5374"}],
+  "license": "AGPL-3.0-only",
+  "version": "0.1.0",
+  "keywords": ["holographic-memory", "ensemble", "heterogeneity", "voting", "negative-result", "reproducible-research"],
+  "notes": "Synthetic toy simulation; classical software with a classical negative result. Not physical holography or quantum hardware.",
+  "communities": [{"identifier": "spark-ai-nlp"}]
+}

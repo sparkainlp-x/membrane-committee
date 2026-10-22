@@ -141,6 +141,35 @@ class RefusingMember:
                 "cal_accept_in": best[2], "cal_accept_ood": best[3]}
 
 
+    def calibrate_correctness(self, sigma=0.25, n=200, seed=0, grid=101):
+        """Alternative gate: choose tau by Youden's J on this member's
+        RIGHT vs WRONG votes (labeled noisy probes at `sigma`), then
+        freeze it. Same feature (max overlap), different target: the
+        gate is tuned to separate correct votes from errors, not
+        in-library probes from random states. Use calibration seeds
+        disjoint from evaluation seeds."""
+        rng = random.Random(seed)
+        right, wrong = [], []
+        for _ in range(n):
+            label = rng.randrange(len(self.raw))
+            probe = noisy(self.raw[label], sigma, rng)
+            score = self.max_overlap(probe)
+            (right if self.vote(probe)[0] == label else wrong).append(score)
+        if not right or not wrong:
+            self.tau = 0.0
+            return {"tau": 0.0, "J": 0.0, "n_right": len(right),
+                    "n_wrong": len(wrong)}
+        best = None
+        for g in range(grid):
+            tau = g / (grid - 1)
+            tpr = sum(s >= tau for s in right) / len(right)
+            fpr = sum(s >= tau for s in wrong) / len(wrong)
+            if best is None or (tpr - fpr) > best[0]:
+                best = (tpr - fpr, tau)
+        self.tau = best[1]
+        return {"tau": best[1], "J": best[0], "n_right": len(right),
+                "n_wrong": len(wrong)}
+
 # ------------------------------------------------------- committee
 class RefusingCommittee:
     def __init__(self, members):

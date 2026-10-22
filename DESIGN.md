@@ -24,7 +24,7 @@ near chance on 200 trials:
 | 0.75 | 0.515       | 0.530    | 0.540    | 0.805  |
 
 **Heterogeneity alone does not help. The aggregation rule is the
-whole game.** The oracle column proves the information exists in
+whole game.** The oracle column shows the information exists in
 the ensemble — on 97% of trials at σ=0.25 *some* member is right —
 but no tested voting rule extracts it. Diversity without a good
 aggregator is just disagreement.
@@ -62,3 +62,21 @@ the diversity.
   architectures could behave differently.
 - The oracle is a headroom bound, not a method — it peeks at the
   label.
+
+# v0.2.0: the refusing committee
+
+## Question
+
+Does a per-member refusal gate fix the committee? Each member calibrates a threshold tau on its maximum overlap (Youden's J), freezes it, and votes only when the overlap reaches tau. The received package compared one calibration and evaluation seed set; `sweep_refusing.py` repeats the comparison on 20 disjoint seed sets and reports mean and standard error, with the paired difference on the same probes.
+
+## Findings (results_refusing.md)
+
+- With the received gate (in-library vs random states), the refusing committee is below the plain committee at sigma = 0.25 by 0.025 ± 0.004, and by 0.140 ± 0.009 at sigma = 0.50, where 21% of probes are refused. The received text mentioned "three seed sets" and a refusal rate of "17-30%"; neither is in the received code, so both are replaced by these sweep numbers.
+- The received explanation was that the committee's errors are high-confidence. Measured per member, wrong votes have slightly lower overlap than right ones for four of five members, but the distributions overlap heavily. For the 2-amplitude member, wrong votes have higher overlap. The plain committee's winning votes differ by only about 0.01 between right and wrong outcomes. So the errors are not reliably low-confidence, and an overlap threshold cannot remove them.
+- A gate calibrated on right vs wrong votes (gate B) does worse: -0.114 ± 0.010 at sigma = 0.25. Because the 2-amplitude member's errors cannot be separated by overlap (J about 0.02), its threshold ends near zero and it keeps voting, while the full-resolution member is silenced more often.
+
+## Limits
+
+- Toy scale: 3 qubits, 4 patterns, 5 members, majority vote.
+- Gates use overlap magnitude only, are calibrated per member (not jointly for the committee), and are frozen at sigma = 0.25.
+- Refusal counts as a miss. Where deferring has value, the trade-off would look different.

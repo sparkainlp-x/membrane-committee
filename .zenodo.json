@@ -1,11 +1,40 @@
 {
   "upload_type": "software",
   "title": "Membrane Committee",
-  "description": "Synthetic toy simulation (classical software, not physical holography hardware): a heterogeneous committee of holographic membranes at different coarse-graining resolutions voting on noisy probes. Negative result: majority, confidence-weighted and reliability-weighted voting do not beat the best single member at low-to-moderate noise and only marginally exceed it near chance, while the oracle gap shows the ensemble holds unused information.",
-  "creators": [{"name": "Brisson, Jean-François", "orcid": "0009-0000-9778-5374"}],
+  "description": "Synthetic toy simulation (classical software, not physical holography hardware): a heterogeneous committee of holographic membranes at different coarse-graining resolutions voting on noisy probes. Negative result: majority, confidence-weighted and reliability-weighted voting do not beat the best single member at low-to-moderate noise and only marginally exceed it near chance, while the oracle gap shows the ensemble holds unused information. Version 0.2.0 adds per-member refusal gates, measured over 20 seed sets: refusal lowers committee accuracy (by 0.025 at the calibration noise level and about 0.14 under noise shift), wrong votes are only weakly separable from right ones by overlap, and a gate calibrated on right versus wrong votes does worse. Acknowledgement: Mun Seok Lee, credited on the received refusing-committee package kept in spec/refusing-committee/; no endorsement implied.",
+  "creators": [
+    {
+      "name": "Brisson, Jean-François",
+      "orcid": "0009-0000-9778-5374",
+      "affiliation": "Spark AI NLP, Fredericton, New Brunswick, Canada"
+    }
+  ],
   "license": "AGPL-3.0-only",
-  "version": "0.1.0",
-  "keywords": ["holographic-memory", "ensemble", "heterogeneity", "voting", "negative-result", "reproducible-research"],
+  "version": "0.2.0",
+  "keywords": [
+    "holographic-memory",
+    "ensemble",
+    "heterogeneity",
+    "voting",
+    "negative-result",
+    "reproducible-research",
+    "refusal",
+    "selective-prediction"
+  ],
   "notes": "Synthetic toy simulation; classical software with a classical negative result. Not physical holography or quantum hardware.",
-  "communities": [{"identifier": "spark-ai-nlp"}]
+  "communities": [
+    {
+      "identifier": "spark-ai-nlp"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/membrane-committee",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "references": [
+    "Youden, W. J. (1950). Index for rating diagnostic tests. Cancer, 3(1), 32-35. https://doi.org/10.1002/1097-0142(1950)3:1<32::AID-CNCR2820030106>3.0.CO;2-3"
+  ]
 }

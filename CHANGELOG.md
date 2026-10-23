@@ -2,6 +2,7 @@
 
 ## 0.2.0 (2026-10-22)
 
+- Archived on Zenodo: version DOI [10.5281/zenodo.23583048](https://doi.org/10.5281/zenodo.23583048), concept DOI [10.5281/zenodo.23583047](https://doi.org/10.5281/zenodo.23583047).
 - Added the refusing committee (`rcommittee.py`, `demo_refusing.py`, `tests_refusing.py`): per-member refusal gates calibrated by Youden's J and frozen, majority among voters, committee refusal when all members refuse. The package as received is kept unchanged in `spec/refusing-committee/`.
 - Added `sweep_refusing.py` and `results_refusing.md`: 20 disjoint calibration and evaluation seed sets, mean and standard error per noise level, paired refusing-minus-plain difference.
 - Added a measurement of vote confidence for right vs wrong votes per member, testing the "high-confidence errors" explanation. It holds only in part.

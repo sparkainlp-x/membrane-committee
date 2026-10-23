@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (unreleased)
+## 0.2.0 (2026-10-22)
 
 - Added the refusing committee (`rcommittee.py`, `demo_refusing.py`, `tests_refusing.py`): per-member refusal gates calibrated by Youden's J and frozen, majority among voters, committee refusal when all members refuse. The package as received is kept unchanged in `spec/refusing-committee/`.
 - Added `sweep_refusing.py` and `results_refusing.md`: 20 disjoint calibration and evaluation seed sets, mean and standard error per noise level, paired refusing-minus-plain difference.

@@ -1,5 +1,7 @@
 # Membrane Committee
 
+Software DOI for v0.2.0: [10.5281/zenodo.23583048](https://doi.org/10.5281/zenodo.23583048) (all versions: [10.5281/zenodo.23583047](https://doi.org/10.5281/zenodo.23583047)).
+
 **Heterogeneity by design, inside the memory — and the honest
 finding that it isn't enough.**
 

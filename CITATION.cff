@@ -2,6 +2,14 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: Membrane Committee
 version: 0.2.0
+doi: "10.5281/zenodo.23583048"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23583048"
+    description: "Version DOI for v0.2.0"
+  - type: doi
+    value: "10.5281/zenodo.23583047"
+    description: "Concept DOI (all versions)"
 date-released: "2026-10-22"
 authors:
   - family-names: Brisson

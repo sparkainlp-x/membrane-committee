@@ -87,9 +87,13 @@ Toy scale; three voting rules tested (a smarter aggregator might
 win — untested, claimed nowhere); resolution is one heterogeneity
 axis; the oracle peeks at the label. For the refusing committee: per-member gates on overlap magnitude with majority vote only, gates frozen at one noise level, refusal counted as a miss. Full account in `DESIGN.md`.
 
+## Provenance
+
+A package received under Mun Seok Lee's name, which lists him as sole author under AGPL-3.0-only, is kept unchanged in [spec/refusing-committee/](spec/refusing-committee/). We could not independently verify who wrote it. The refusing-committee code in this repository is derived from it: `rcommittee.py` is about 92% line-similar to the received `rcommittee.py`, and `demo_refusing.py` and `tests_refusing.py` are about 99% similar to the received `demo.py` and `tests.py`. The original committee (`hcommittee.py`, `demo.py`, `tests.py`) was committed before the received package was added and is not derived from it. `sweep_refusing.py`, `tests_sweep.py` and `results_refusing.md` were added by this project. Line similarity here comes from a plain diff, not from a review of intent. [CHANGELOG.md](CHANGELOG.md) lists the changes. Mun Seok Lee is not an author of this release, and he has not reviewed or endorsed this software.
+
 ## Acknowledgements
 
-Thanks to Mun Seok Lee, who is credited on the received refusing-committee package kept in [spec/refusing-committee/](spec/refusing-committee/). The acknowledgement does not imply his endorsement of this code or its conclusions.
+Thanks to Mun Seok Lee for the package received under his name (see Provenance above). This is an acknowledgement only: it implies no endorsement of this code or its conclusions.
 
 ## License
 
